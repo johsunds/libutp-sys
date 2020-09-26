@@ -8,6 +8,7 @@ description = "libutp bindings"
 keywords = ["bittorrent", "network"]
 license = "MIT"
 repository = "https://github.com/johsunds/libutp-sys"
+links = "libutp"
 
 [build-dependencies]
 cc = { version = "1.0", features = ["parallel"] }
