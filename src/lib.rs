@@ -2,15 +2,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-#[cfg(build)]
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
-
-#[cfg(win_pregen)]
-include!("../win_bindings.rs");
-
-#[cfg(posix_pregen)]
-include!("../posix_bindings.rs");  // TODO: generate these
-
 
 #[cfg(not(windows))]
 pub use nix::sys::socket::{sockaddr, sockaddr_in, sockaddr_storage, sockaddr_in6};

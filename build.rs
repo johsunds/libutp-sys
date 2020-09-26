@@ -2,17 +2,6 @@ use std::path::PathBuf;
 use std::env;
 
 fn main() {
-    if !cfg!(feature = "build") {
-        if cfg!(windows) {
-            println!("cargo:rustc-cfg=win_pregen")
-        } else {
-            println!("cargo:rustc-cfg=posix_pregen")
-        }
-        return;
-    }
-
-    println!("cargo:rustc-cfg=build");
-
     if cfg!(windows) {
         println!("cargo:rerun-if-changed=utp_win.h");
     } else {

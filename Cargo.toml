@@ -1,6 +1,6 @@
 [package]
 name = "libutp-sys"
-version = "0.1.1"
+version = "0.1.2"
 build = "build.rs"
 authors = ["johsunds <jsundstrom1994@gmail.com>"]
 edition = "2018"
@@ -14,9 +14,6 @@ links = "libutp"
 cc = { version = "1.0", features = ["parallel"] }
 bindgen = "0.55.1"
 socket2 = "0.3.15"
-
-[features]
-build = []
 
 [target.'cfg(target_os = "linux")'.dependencies]
 nix = "0.18.0"
