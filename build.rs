@@ -76,7 +76,6 @@ fn main() {
 
 fn compile() {
     let src = [
-        "libutp/libutp_inet_ntop.cpp",
         "libutp/utp_api.cpp",
         "libutp/utp_callbacks.cpp",
         "libutp/utp_hash.cpp",
@@ -85,10 +84,18 @@ fn compile() {
         "libutp/utp_utils.cpp",
     ];
 
-    cc::Build::new()
-        .cpp(true)
+
+    let mut builder = cc::Build::new();
+
+    builder.cpp(true)
         .include("libutp")
-        .files(src.iter())
-        .define(if cfg!(windows) { "WIN32" } else { "POSIX" }, None)
-        .compile("libutp");
+        .files(src.iter());
+
+    if cfg!(windows) {
+        builder
+            .file("libutp/libutp_inet_ntop.cpp")
+            .define("WIN32", None)
+    } else {
+        builder.define("POSIX", None)
+    }.compile("libutp");
 }
