@@ -1,6 +1,6 @@
 [package]
 name = "libutp-sys"
-version = "0.1.2"
+version = "0.1.3"
 build = "build.rs"
 authors = ["johsunds <jsundstrom1994@gmail.com>"]
 edition = "2018"
